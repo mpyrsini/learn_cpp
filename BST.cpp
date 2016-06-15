@@ -32,18 +32,17 @@ class BST{
         
         int getHeight(Node* root){
           //Write your code here
-            if(root==NULL){
-                return -1;
+            if(root==NULL)
+                return 0;
+            if(root->left==NULL && root->right==NULL)
+                return 0;
+            int ld=getHeight(root->left);
+            int rd=getHeight(root->right);
+            if(ld>rd){
+                 return ld+1;
             }else{
-                int ld=getHeight(root->left);
-                int rd=getHeight(root->right);
-                if(ld>rd){
-                    return ld+1;
-                }else{
-                    return rd+1;
-                }
-            }
-            
+                 return rd+1;
+             }                       
         }
 };//End of BST
 int main(){
