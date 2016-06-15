@@ -12,7 +12,7 @@ class Node{
 };
 class BST{
     public:
-  		Node* insert(Node* root, int data){
+        Node* insert(Node* root, int data){
             if(root==NULL){
                 return new Node(data);
             }
