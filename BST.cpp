@@ -29,7 +29,7 @@ class BST{
            return root;
            }
         }
-        
+        //height(recursively):def:Number of edges on longest path from root to the deepest node.
         int getHeight(Node* root){
           //Write your code here
             if(root==NULL)
