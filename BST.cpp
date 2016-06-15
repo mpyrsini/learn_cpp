@@ -45,7 +45,7 @@ class BST{
             }
             
         }
-};//End of Solution
+};//End of BST
 int main(){
     BST myTree;
     Node* root=NULL;
