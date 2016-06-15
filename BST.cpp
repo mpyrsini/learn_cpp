@@ -31,13 +31,14 @@ class BST{
            return root;
            }
         }
-        //height(recursively):def:Number of edges on longest path from root to the deepest node.
+        //current def of height of BST:Number of edges on longest path from root to the deepest node.
+        //Recursively method to find height of Bianry Tree
         int getHeight(Node* root){
           //Write your code here
             if(root==NULL)
                 return 0;
             if(root->left==NULL && root->right==NULL)
-                return 0;
+                return 0;   //return 1 for other def
             int ld=getHeight(root->left);
             int rd=getHeight(root->right);
             if(ld>rd){
@@ -46,8 +47,7 @@ class BST{
                  return rd+1;
              }                       
         }
-        //height iterative
-        //iterative method
+        
         // Iterative method to find height of Bianry Tree
         int getHeight_iteratively(Node* root){
             // Base Case
@@ -67,7 +67,7 @@ class BST{
                 // at current lelvel.
                 int nodeCount = q.size();
                 if (nodeCount == 0)
-                    return height;
+                    return height-1;  //return height for other def
 
                 height++;
 
@@ -85,6 +85,36 @@ class BST{
                 }
             }
         }
+        // label order traversla of BST
+        void levelOrder(Node * root){      
+        // Create an empty queue for level order tarversal
+            queue<Node*> q;
+
+            // Enqueue Root 
+            q.push(root);
+            while (1)
+            {
+                // nodeCount (queue size) indicates number of nodes
+                // at current lelvel.
+                int nodeCount = q.size();
+                if (nodeCount == 0)
+                    break;
+                // Dequeue all nodes of current level and Enqueue all
+                // nodes of next level
+                while (nodeCount > 0)
+                {
+                    Node *tempNode = q.front();
+                    cout<<tempNode->data<<" ";
+                    q.pop();
+                    if (tempNode->left != NULL)
+                        q.push(tempNode->left);
+                    if (tempNode->right != NULL)
+                        q.push(tempNode->right);
+                    nodeCount--;
+                }
+            }
+  
+	}
 };//End of BST
 int main(){
     BST myTree;
