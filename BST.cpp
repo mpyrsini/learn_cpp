@@ -33,7 +33,7 @@ class BST{
         }
         //current def of height of BST:Number of edges on longest path from root to the deepest node.
         //Recursively method to find height of Bianry Tree
-        int getHeight(Node* root){
+        int getHeight_recursively(Node* root){
           //Write your code here
             if(root==NULL)
                 return 0;
@@ -125,8 +125,11 @@ int main(){
         cin>>data;
         root= myTree.insert(root,data);
     }
-    int height= myTree.getHeight(root);
-    cout<<height;
+    int height1= myTree.getHeight_recursively(root);
+    cout<<height1;
+    int height2= myTree.getHeight_iteratively(root);
+    cout<<height2;
+     myTree.levelOrder(root);
     return 0;
 }
     
